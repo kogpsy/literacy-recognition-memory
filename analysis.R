@@ -67,10 +67,10 @@ mcmc_plot(fit1)
 #                     effects = "adjusted_reading_score",
 #                     conditions = conditions)
 
-# theme_set(theme_grey(base_size = 14) +
-#               theme(panel.grid = element_blank()))
+theme_set(theme_grey(base_size = 14) +
+              theme(panel.grid = element_blank()))
 
-library(ggthemes)
+
 conditions <- make_conditions(fit1, "category")
 
 p1 <- conditional_effects(fit1,
@@ -78,10 +78,8 @@ p1 <- conditional_effects(fit1,
                     conditions = conditions)
 
 plot(p1, plot = F)[[1]] +
-    scale_fill_pander() +
-    theme(legend.position = "none",
-          panel.grid.minor = element_blank())
-
+    scale_color_viridis_d(end = 0.8) +
+    scale_fill_viridis_d(end = 0.8)
 
 
 
